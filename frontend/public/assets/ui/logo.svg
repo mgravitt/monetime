@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="121px" height="28px" viewBox="0 0 121 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="-29" y="-47" width="206" height="467"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rectangle">
+            <use fill="#4D394B" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <rect stroke="#979797" stroke-width="1" x="-28.5" y="-46.5" width="205" height="466"></rect>
+        </g>
+        <g id="Group" transform="translate(4.000000, -2.000000)" fill="#FFFFFF">
+            <text id="M-netime" font-family="Lato-Bold, Lato" font-size="24" font-weight="bold">
+                <tspan x="0.242" y="24">M   netime</tspan>
+            </text>
+            <path d="M29.25,11.25 C25.666,11.25 22.75,14.166 22.75,17.75 C22.75,21.334 25.666,24.25 29.25,24.25 C32.834,24.25 35.75,21.334 35.75,17.75 C35.75,14.166 32.834,11.25 29.25,11.25 Z M29.25,12.25 C32.2936667,12.25 34.75,14.7063333 34.75,17.75 C34.75,20.7936667 32.2936667,23.25 29.25,23.25 C26.2063333,23.25 23.75,20.7936667 23.75,17.75 C23.75,14.7063333 26.2063333,12.25 29.25,12.25 Z M29.25,13.0833333 C28.9739667,13.0833333 28.75,13.3073 28.75,13.5833333 L28.75,17.75 C28.75,17.9349 28.8509117,18.0957 29,18.1823 L32.3176667,20.0989667 C32.5566,20.2369867 32.86715,20.1556067 33.0051667,19.9166667 C33.1431833,19.6777267 33.0565983,19.3724 32.8176667,19.2343667 L29.75,17.4635333 L29.75,13.5833667 C29.75,13.3073333 29.5260333,13.0833667 29.25,13.0833667 L29.25,13.0833333 Z" id="Page-1"></path>
+        </g>
+    </g>
+</svg>

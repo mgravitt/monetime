@@ -30,6 +30,7 @@ class Menu extends Component {
 
     return (
       <div id="Menu">
+      	<div id="Menu-logo">Monetime</div>
       	though
       </div>
     );
