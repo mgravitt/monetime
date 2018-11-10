@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { Api, JsonRpc, RpcError, JsSignatureProvider } from 'eosjs'; // https://github.com/EOSIO/eosjs
 import { TextDecoder, TextEncoder } from 'text-encoding';
 
-import Menu from './menu';
-import '../styles/Index.css';
-
 // material-ui dependencies
 import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 // eosio endpoint
@@ -23,7 +27,6 @@ const accounts = [
   {"name":"useraaaaaaaf", "privateKey":"5KaqYiQzKsXXXxVvrG8Q3ECZdQAj2hNcvCgGEubRvvq7CU3LySK", "publicKey":"EOS5btzHW33f9zbhkwjJTYsoyRzXUNstx1Da9X2nTzk8BQztxoP3H"},
   {"name":"useraaaaaaag", "privateKey":"5KFyaxQW8L6uXFB6wSgC44EsAbzC7ideyhhQ68tiYfdKQp69xKo", "publicKey":"EOS8Du668rSVDE3KkmhwKkmAyxdBd73B51FKE7SjkKe5YERBULMrw"}
 ];
-
 // set up styling classes using material-ui "withStyles"
 const styles = theme => ({
   card: {
@@ -44,7 +47,6 @@ const styles = theme => ({
     marginBottom: 0,
   },
 });
-
 
 // Index component
 class Index extends Component {
@@ -136,10 +138,74 @@ class Index extends Component {
     const { noteTable } = this.state;
     const { classes } = this.props;
 
+    // generate each note as a card
+    const generateCard = (key, timestamp, user, note) => (
+      <Card className={classes.card} key={key}>
+        <CardContent>
+          <Typography variant="headline" component="h2">
+            {user}
+          </Typography>
+          <Typography style={{fontSize:12}} color="textSecondary" gutterBottom>
+            {new Date(timestamp*1000).toString()}
+          </Typography>
+          <Typography component="pre">
+            {note}
+          </Typography>
+        </CardContent>
+      </Card>
+    );
+    let noteCards = noteTable.map((row, i) =>
+      generateCard(i, row.timestamp, row.user, row.note));
+
     return (
-      <div id="Index">
-        <Menu />
-        hello world
+      <div>
+        <AppBar position="static" color="default">
+          <Toolbar>
+            <Typography variant="title" color="inherit">
+              Note Chain
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        {noteCards}
+        <Paper className={classes.paper}>
+          <form onSubmit={this.handleFormEvent}>
+            <TextField
+              name="account"
+              autoComplete="off"
+              label="Account"
+              margin="normal"
+              fullWidth
+            />
+            <TextField
+              name="privateKey"
+              autoComplete="off"
+              label="Private key"
+              margin="normal"
+              fullWidth
+            />
+            <TextField
+              name="note"
+              autoComplete="off"
+              label="Note (Optional)"
+              margin="normal"
+              multiline
+              rows="10"
+              fullWidth
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.formButton}
+              type="submit">
+              Add / Update note
+            </Button>
+          </form>
+        </Paper>
+        <pre className={classes.pre}>
+          Below is a list of pre-created accounts information for add/update note:
+          <br/><br/>
+          accounts = { JSON.stringify(accounts, null, 2) }
+        </pre>
       </div>
     );
   }
