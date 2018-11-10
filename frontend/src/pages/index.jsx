@@ -3,6 +3,7 @@ import { Api, JsonRpc, RpcError, JsSignatureProvider } from 'eosjs'; // https://
 import { TextDecoder, TextEncoder } from 'text-encoding';
 
 import Menu from './menu';
+import Store from './store';
 import '../styles/Index.css';
 
 // material-ui dependencies
@@ -139,6 +140,7 @@ class Index extends Component {
     return (
       <div id="Index">
         <Menu />
+        <Store />
         hello world
       </div>
     );
