@@ -20,7 +20,7 @@ class Menu extends Component {
 
     return (
       <div id="Menu">
-      	<div id="Menu-logo">Monetime</div>
+      	<div id="Menu-logo"><img src="/assets/ui/logo.svg" /></div>
         <ul>
           <li id="Menu-browse" onClick={this.handlePageChange}>Browse Marketplace</li>
         </ul>

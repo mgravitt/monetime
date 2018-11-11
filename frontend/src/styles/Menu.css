@@ -11,10 +11,15 @@
 #Menu-logo {
 	font-size: 60px;
 	font-weight: bold;
-	text-align: center;
+	text-align: left;
 	padding-top: 10px;
 	padding-bottom: 15px;
+	padding-left: 18px;
 	color: white;
+}
+
+#Menu-logo img {
+	width: 250px;
 }
 
 #Menu-browse {
