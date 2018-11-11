@@ -109,7 +109,7 @@ class Store extends Component {
 
     let storeClass = "Store-" + this.props.storeId + (this.props.subscribed ? "-2" : "")
 
-    let buttonName = this.props.subscribed ? "Pause Subscription" : "Start Subscription"
+    let buttonName = this.props.subscribed ? "Unsubscribe" : "Subscribe"
 
     let subAction = this.props.subscribed ? this.handleUnsubscribe : this.handleSubscribe
 
