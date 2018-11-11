@@ -31,8 +31,10 @@ class Menu extends Component {
     return (
       <div id="Menu">
       	<div id="Menu-logo">Monetime</div>
-        <div id="Menu-marketplace">Browse Marketplace</div>
-      	<div id="Menu-header">My Memberships</div>
+        <ul>
+          <li>Browse Marketplace</li>
+        </ul>
+      	<h2>My Memberships</h2>
       	<ul>
       		<li>24-Hour Fitness</li>
       		<li>World of Warcraft</li>
