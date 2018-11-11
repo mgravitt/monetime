@@ -12,8 +12,8 @@ class Market extends Component {
       <div id="Market">
         <section>
           <h2>Apps</h2>
-          <AppIcon name="24-Hour Fitness" symbol="24h" handlePageChange={this.props.handlePageChange} />
           <AppIcon name="World of Warcraft" symbol="wow" handlePageChange={this.props.handlePageChange} />
+          <AppIcon name="24-Hour Fitness" symbol="24h" handlePageChange={this.props.handlePageChange} />
           <AppIcon name="New York Times" symbol="nyt" handlePageChange={this.props.handlePageChange} />
           <AppIcon name="Verizon" symbol="verizon" handlePageChange={this.props.handlePageChange} />
         </section>

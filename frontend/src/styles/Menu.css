@@ -43,7 +43,7 @@
 	height: 1.75rem;
 	cursor: pointer;
 }
-#Menu li:hover {
+#Menu li:hover, #Menu li.selected {
 	background-color: #4C9689;
 	color: white;
 }

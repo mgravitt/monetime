@@ -16,7 +16,7 @@ class Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      page: '',
+      page: 'market',
       subs: [],
     }
 
@@ -73,7 +73,7 @@ class Index extends Component {
 
     return (
       <div id="Index">
-        <Menu handlePageChange={this.handlePageChange} subs={this.state.subs}/>
+        <Menu handlePageChange={this.handlePageChange} subs={this.state.subs} selected={this.state.page} />
         {pageDOM}
       </div>
     );
