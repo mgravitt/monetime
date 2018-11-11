@@ -16,7 +16,6 @@ class Index extends Component {
   }
 
   handlePageChange(page) {
-    console.log("got here")
     this.setState({
       page: page
     })
@@ -33,7 +32,7 @@ class Index extends Component {
 
     return (
       <div id="Index">
-        <Menu />
+        <Menu handlePageChange={this.handlePageChange} />
         {pageDOM}
       </div>
     );

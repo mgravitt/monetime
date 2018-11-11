@@ -1,30 +1,20 @@
 import React, { Component } from 'react';
 
-import { withStyles } from '@material-ui/core/styles';
-
 import '../styles/Menu.css';
 
-const styles = theme => ({
-  card: {
-    margin: 20,
-  },
-  paper: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-  },
-  formButton: {
-    marginTop: theme.spacing.unit,
-    width: "100%",
-  },
-  pre: {
-    background: "#ccc",
-    padding: 10,
-    marginBottom: 0,
-  }
-});
-
 class Menu extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      page: ''
+    }
+    this.handlePageChange = this.handlePageChange.bind(this)
+  }
+
+  handlePageChange(event) {
+    this.props.handlePageChange('market')
+  }
 
   render() {
 
@@ -32,7 +22,7 @@ class Menu extends Component {
       <div id="Menu">
       	<div id="Menu-logo">Monetime</div>
         <ul>
-          <li>Browse Marketplace</li>
+          <li id="Menu-browse" onClick={this.handlePageChange}>Browse Marketplace</li>
         </ul>
       	<h2>My Memberships</h2>
       	<ul>
@@ -47,4 +37,4 @@ class Menu extends Component {
   }
 }
 
-export default withStyles(styles)(Menu);
+export default Menu;

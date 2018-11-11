@@ -17,6 +17,10 @@
 	color: white;
 }
 
+#Menu-browse {
+	cursor: pointer;
+}
+
 #Menu h2 {
 	padding-left: 20px;
 	text-transform: uppercase;
