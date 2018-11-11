@@ -24,7 +24,7 @@ class Menu extends Component {
         <ul>
           <li id="Menu-browse" onClick={this.handlePageChange}>Browse Marketplace</li>
         </ul>
-      	<h2>My Memberships</h2>
+      	<h2>My Subscriptions</h2>
       	<ul>
       		<li>24-Hour Fitness</li>
       		<li>World of Warcraft</li>
