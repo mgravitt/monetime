@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { withStyles } from '@material-ui/core/styles';
+import AppIcon from '../components/app-icon';
 
 import '../styles/Market.css';
 
@@ -10,16 +10,27 @@ class Market extends Component {
 
     return (
       <div id="Market">
-      	<div id="Menu-logo">Monetime</div>
-        <div id="Menu-marketplace">Browse Marketplace</div>
-      	<div id="Menu-header">My Memberships</div>
-      	<ul>
-      		<li>24-Hour Fitness</li>
-      		<li>World of Warcraft</li>
-      		<li>Minecraft</li>
-      		<li>Verizon Wireless</li>
-      		<li>Evernote</li>
-      	</ul>
+        <section>
+          <h2>Real-world Services</h2>
+          <AppIcon name="24-Hour Fitness" symbol="24h" />
+          <AppIcon name="HBO" symbol="hbo" />
+          <AppIcon name="New York Times" symbol="nyt" />
+          <AppIcon name="Verizon" symbol="verizon" />
+        </section>
+        <section>
+          <h2>Games</h2>
+          <AppIcon name="World of Warcraft" symbol="wow" />
+          <AppIcon name="Angry Birds" symbol="birds" />
+          <AppIcon name="Assassin's Creed" symbol="creed" />
+          <AppIcon name="Minecraft" symbol="minecraft" />
+        </section>
+        {/*<section>
+          <h2>Productivity</h2>
+          <AppIcon name="Dropbox" symbol="dbx" />
+          <AppIcon name="Duolingo" symbol="duolingo" />
+          <AppIcon name="Evernote" symbol="evernote" />
+          <AppIcon name="Tweetbot" symbol="tweetbot" />
+        </section>*/}
       </div>
     );
   }
