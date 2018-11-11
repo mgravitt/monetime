@@ -12,17 +12,17 @@ class Market extends Component {
       <div id="Market">
         <section>
           <h2>Real-world Services</h2>
-          <AppIcon name="24-Hour Fitness" symbol="24h" />
-          <AppIcon name="HBO" symbol="hbo" />
-          <AppIcon name="New York Times" symbol="nyt" />
-          <AppIcon name="Verizon" symbol="verizon" />
+          <AppIcon name="24-Hour Fitness" symbol="24h" handlePageChange={this.props.handlePageChange} />
+          <AppIcon name="HBO" symbol="hbo" handlePageChange={this.props.handlePageChange} />
+          <AppIcon name="New York Times" symbol="nyt" handlePageChange={this.props.handlePageChange} />
+          <AppIcon name="Verizon" symbol="verizon" handlePageChange={this.props.handlePageChange} />
         </section>
         <section>
           <h2>Games</h2>
-          <AppIcon name="World of Warcraft" symbol="wow" />
-          <AppIcon name="Angry Birds" symbol="birds" />
-          <AppIcon name="Assassin's Creed" symbol="creed" />
-          <AppIcon name="Minecraft" symbol="minecraft" />
+          <AppIcon name="World of Warcraft" symbol="wow" handlePageChange={this.props.handlePageChange} />
+          <AppIcon name="Angry Birds" symbol="birds" handlePageChange={this.props.handlePageChange} />
+          <AppIcon name="Assassin's Creed" symbol="creed" handlePageChange={this.props.handlePageChange} />
+          <AppIcon name="Minecraft" symbol="minecraft" handlePageChange={this.props.handlePageChange} />
         </section>
         {/*<section>
           <h2>Productivity</h2>
