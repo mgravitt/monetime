@@ -9,8 +9,13 @@
 .Store-24h {
 	background-image: url("/assets/store-pages/24h.png");
 	width: 800px;
-	height: 500px;
+	height: 600px;
+}
 
+.Store-wow {
+	background-image: url("/assets/store-pages/wow.png");
+	width: 800px;
+	height: 600px;
 }
 
 .Store .buttons {

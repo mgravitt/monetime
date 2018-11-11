@@ -10,7 +10,7 @@ class Index extends Component {
     return (
       <div id="Index">
         <Menu />
-        <Store />
+        <Store storeId="wow" />
       </div>
     );
   }

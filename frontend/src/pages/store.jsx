@@ -4,12 +4,9 @@ import { Api, JsonRpc, RpcError, JsSignatureProvider } from 'eosjs'; // https://
 import { TextDecoder, TextEncoder } from 'text-encoding';
 
 import '../styles/Store.css';
-import Button from '@material-ui/core/Button';
 
 const endpoint = "http://localhost:8888";
 
-// NEVER store private keys in any source code in your real life development
-// This is for demo purposes only!
 const accounts = [
   {"name":"subscriber1", "privateKey":"5JhhMGNPsuU42XXjZ57FcDKvbb7KLrehN65tdTQFrH51uruZLHi", "publicKey":"EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn"},
 ];
@@ -25,25 +22,11 @@ class Store extends Component {
   }
 
   async handleSubscribe(event) {
-    // stop default behaviour
-
     event.preventDefault();
 
-    // collect form data
     let account = accounts[0]['name']
     let privateKey = accounts[0]['privateKey']
 
-    // prepare variables for the switch below to send transactions
-    let actionName = "";
-    let actionData = {};
-
-    actionName = "subscribe";
-    actionData = {
-      subscriber: account,
-      dapp_account: "dappowner1"
-    };
-
-    // eosjs function call: connect to the blockchain
     const rpc = new JsonRpc(endpoint);
     const signatureProvider = new JsSignatureProvider([privateKey]);
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
@@ -57,7 +40,10 @@ class Store extends Component {
             actor: account,
             permission: 'active',
           }],
-          data: actionData,
+          data: {
+            subscriber: account,
+            dapp_account: "dappowner1"
+          }
         }]
       }, {
         blocksBehind: 3,
@@ -75,9 +61,12 @@ class Store extends Component {
   }
 
   render() {
+
+    let storeClass = "Store-" + this.props.storeId
+
     return (
       <div className="Store">
-        <div className="Store-24h">
+        <div className={storeClass}>
             <div className="buttons">
               <div className="button" onClick={this.handleSubscribe}>
                 Start Membership
