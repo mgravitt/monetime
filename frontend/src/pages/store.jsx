@@ -19,6 +19,7 @@ class Store extends Component {
       noteTable: [] // to store the table rows from smart contract
     };
     this.handleSubscribe = this.handleSubscribe.bind(this);
+    this.handleUnsubscribe = this.handleUnsubscribe.bind(this);
   }
 
   async handleSubscribe(event) {
@@ -62,6 +63,47 @@ class Store extends Component {
     }
   }
 
+  async handleUnsubscribe(event) {
+
+    event.preventDefault();
+
+    let account = accounts[0]['name']
+    let privateKey = accounts[0]['privateKey']
+
+    const rpc = new JsonRpc(endpoint);
+    const signatureProvider = new JsSignatureProvider([privateKey]);
+    const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+    try {
+
+      console.log("storeID: " + this.props.storeId);
+      const result = await api.transact({
+        actions: [{
+          account: "monetime",
+          name: "unsubscribe",
+          authorization: [{
+            actor: account,
+            permission: 'active',
+          }],
+          data: {
+            subscriber: account,
+            dapp_account: this.props.storeId
+          }
+        }]
+      }, {
+        blocksBehind: 3,
+        expireSeconds: 30,
+      })
+
+      console.log(result)
+      this.props.handleBlockchainTable()
+    } catch (e) {
+      console.log('Caught exception: ' + e);
+      if (e instanceof RpcError) {
+        console.log(JSON.stringify(e.json, null, 2));
+      }
+    }
+  }
+
   render() {
 
 
@@ -76,7 +118,7 @@ class Store extends Component {
               <div className="button" onClick={this.handleSubscribe}>
                 {buttonName}
               </div>
-              <div className="button">
+              <div className="button" onClick={this.handleUnsubscribe}>
                 Sell Subscription
               </div>
               <div className="offer">
