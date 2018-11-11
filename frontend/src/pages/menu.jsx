@@ -18,6 +18,14 @@ class Menu extends Component {
 
   render() {
 
+    let wowLi = ""
+    let gymLi = ""
+    if (this.props.subs && this.props.subs['wow'])
+      wowLi = <li>World of Warcraft</li>
+
+    if (this.props.subs && this.props.subs['24h'])
+      gymLi = <li>24-Hour Fitness</li>
+
     return (
       <div id="Menu">
       	<div id="Menu-logo"><img src="/assets/ui/logo.svg" /></div>
@@ -26,8 +34,9 @@ class Menu extends Component {
         </ul>
       	<h2>My Subscriptions</h2>
       	<ul>
-      		<li>24-Hour Fitness</li>
-      		<li>World of Warcraft</li>
+      		{wowLi}
+          {gymLi}
+      		
       		<li>Minecraft</li>
       		<li>Verizon Wireless</li>
       		<li>Evernote</li>

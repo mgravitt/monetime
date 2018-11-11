@@ -72,7 +72,7 @@ class Index extends Component {
 
     return (
       <div id="Index">
-        <Menu handlePageChange={this.handlePageChange} />
+        <Menu handlePageChange={this.handlePageChange} subs={this.state.subs}/>
         {pageDOM}
       </div>
     );
