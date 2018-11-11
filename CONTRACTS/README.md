@@ -9,14 +9,14 @@ docker-compose build
 docker-compose up -d
 
 # To unlock wallet (use your password)
-docker exec -it eoshack_nodeosd_1 /opt/eosio/bin/cleos -u http://nodeosd:8888 --wallet-url http://keosd:8900 wallet unlock --password 
+docker exec -it contracts_nodeosd_1 /opt/eosio/bin/cleos -u http://nodeosd:8888 --wallet-url http://keosd:8900 wallet unlock --password 
 
 # To view live logs
-docker logs -f eoshack_nodeosd_1
+docker logs -f contracts_nodeosd_1
 
 # Setup the following aliases
-alias cleos='docker exec -it eoshack_nodeosd_1 /opt/eosio/bin/cleos -u http://nodeosd:8888 --wallet-url http://keosd:8900'
-alias eosiocpp='docker exec -it eoshack_nodeosd_1 eosiocpp'
+alias cleos='docker exec -it contracts_nodeosd_1 /opt/eosio/bin/cleos -u http://nodeosd:8888 --wallet-url http://keosd:8900'
+alias eosiocpp='docker exec -it contracts_nodeosd_1 eosiocpp'
 
 # Here is the command to compile
 eosiocpp -g /eosdev/monetime/monetime.abi /eosdev/monetime/monetime.hpp && eosiocpp -o /eosdev/monetime/monetime.wast /eosdev/monetime/monetime.cpp
