@@ -113,6 +113,10 @@ class Store extends Component {
 
     let subAction = this.props.subscribed ? this.handleUnsubscribe : this.handleSubscribe
 
+    let sellButton = ""
+    if (this.props.subscribed)
+      sellButton = <div><div className="button" onClick={this.handleUnsubscribe}>Sell Subscription</div><div className="offer">Best Offer: 18.4 EOS ($100)</div></div>
+
     return (
       <div className="Store">
         <div className={storeClass}>
@@ -120,12 +124,7 @@ class Store extends Component {
               <div className="button" onClick={subAction}>
                 {buttonName}
               </div>
-              <div className="button" onClick={this.handleUnsubscribe}>
-                Sell Subscription
-              </div>
-              <div className="offer">
-                Best Offer: 18.4 EOS ($100)
-              </div>
+              {sellButton}
             </div>
         </div>
       </div>
