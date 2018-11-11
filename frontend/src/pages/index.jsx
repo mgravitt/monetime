@@ -46,7 +46,7 @@ class Index extends Component {
       let subs = {}
 
       for (let i in result.rows) {
-        subs[result.rows[i]['dapp']] = true
+        subs[result.rows[i]['dapp_account']] = true
       }
 
       console.log(subs)
@@ -62,7 +62,9 @@ class Index extends Component {
       let subscribed = this.state.subs[this.state.page]
       pageDOM = <Store storeId="wow" handlePageChange={this.handlePageChange} handleBlockchainTable={this.handleBlockchainTable} subscribed={subscribed}  />
     } else if (this.state.page == '24h') {
-      let subscribed = this.state.subs[this.state.page]
+      let subscribed = false
+      if (this.state.subs[this.state.page])
+        subscribed = true
       console.log("subscribed: " + subscribed)
       pageDOM = <Store storeId="24h" handlePageChange={this.handlePageChange} handleBlockchainTable={this.handleBlockchainTable} subscribed={subscribed} />
     }

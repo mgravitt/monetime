@@ -111,11 +111,13 @@ class Store extends Component {
 
     let buttonName = this.props.subscribed ? "Pause Subscription" : "Start Subscription"
 
+    let subAction = this.props.subscribed ? this.handleUnsubscribe : this.handleSubscribe
+
     return (
       <div className="Store">
         <div className={storeClass}>
             <div className="buttons">
-              <div className="button" onClick={this.handleSubscribe}>
+              <div className="button" onClick={subAction}>
                 {buttonName}
               </div>
               <div className="button" onClick={this.handleUnsubscribe}>
