@@ -75,6 +75,24 @@ void monetime::subscribe ( const account_name subscriber,
 // }
     
 
+
+
+void monetime::unsubscribe (const account_name subscriber, 
+                   const account_name dapp_account ) {
+    sub_table s_t (_self, _self);
+    auto d_index = s_t.get_index<N(dapp)>();
+    auto d_itr = d_index.find (dapp_account);
+    eosio_assert (d_itr != d_index.end(), "Account does not have a dapp registered.");
+   
+     while (d_itr != d_index.end() && d_itr->dapp_account == dapp_account) {
+        if (subscriber == d_itr->subscriber) {
+            d_itr = d_index.erase (d_itr);
+        } else {
+            d_itr++;
+        }
+    }
+}
+
 void monetime::renew ( const account_name dapp_account) {
     sub_table s_t (_self, _self);
     auto d_index = s_t.get_index<N(dapp)>();
@@ -112,7 +130,7 @@ void monetime::apply(const account_name contract, const account_name act)
 
     switch (act)
     {
-        EOSIO_API(monetime, (regdapp)(subscribe)(renew))
+        EOSIO_API(monetime, (regdapp)(subscribe)(renew)(unsubscribe))
     };
 }
 
