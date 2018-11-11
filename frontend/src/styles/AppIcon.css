@@ -6,3 +6,12 @@
 	font-weight: bold;
 	cursor: pointer;
 }
+
+.AppIcon img {
+	border-radius: 60px;
+	border: solid 5px white;
+}
+
+.AppIcon img:hover {
+	border-color: red;
+}
