@@ -11,7 +11,7 @@ class Market extends Component {
     return (
       <div id="Market">
         <section>
-          <h2>Real-world Services</h2>
+          <h2>Real-World Services</h2>
           <AppIcon name="24-Hour Fitness" symbol="24h" handlePageChange={this.props.handlePageChange} />
           <AppIcon name="HBO" symbol="hbo" handlePageChange={this.props.handlePageChange} />
           <AppIcon name="New York Times" symbol="nyt" handlePageChange={this.props.handlePageChange} />

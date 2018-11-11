@@ -22,6 +22,7 @@ class Index extends Component {
 
     this.handlePageChange = this.handlePageChange.bind(this)
     this.handleBlockchainTable = this.handleBlockchainTable.bind(this)
+
   }
 
   handlePageChange(page) {
