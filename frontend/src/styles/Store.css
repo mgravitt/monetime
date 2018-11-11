@@ -1,9 +1,40 @@
 .Store {
-	background-color: blue;
 	padding: 20px;
 	padding-left: 30px;
 	float: left;
 	font-family: 'Lato';
+	background-color: white;
+}
+
+.Store-24h {
+	background-image: url("/assets/store-pages/24h.png");
+	width: 800px;
+	height: 500px;
+
+}
+
+.Store .buttons {
+	top: 260px;
+	position: absolute;
+}
+
+.Store .button {
+	background-color: #4C9689;
+	margin-top: 20px;
+	width: 230px;
+	border-radius: 13px;
+	color: white;
+	text-align: center;
+	font-size: 18px;
+	padding: 10px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.Store .offer {
+	margin-top: 7px;
+	text-align: center;
+	font-size: 18px;
 }
 
 .Store-title {
@@ -15,12 +46,6 @@
 	float: left;
 	width: 250px;
 	background-color: orange;
-}
-
-.Store-right {
-	float: left;
-	width: 450px;
-	background-color: pink;
 }
 
 .Store-metadata {
