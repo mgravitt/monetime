@@ -1,4 +1,3 @@
-
 cleos create account eosio dappowner1 EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn
 cleos create account eosio dappowner2 EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn
 cleos create account eosio dappowner3 EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn EOS7ckzf4BMgxjgNSYV22rtTXga8R9Z4XWVhYp8TBgnBi2cErJ2hn
@@ -43,23 +42,17 @@ cleos push action monetime regdapp '["dappowner3", "Dateos - Find your soul mate
 cleos push action monetime regdapp '["dappowner4", "EOS Apron - Prepared Meals", "token", "3.50 MON"]' -p monetime
 cleos push action monetime regdapp '["dappowner5", "Worldwide Media Subs", "token", "0.02 MON"]' -p monetime
 
-cleos push action monetime subscribe '["subscriber1", "dappowner1"]' -p subscriber1
-cleos push action monetime subscribe '["subscriber2", "dappowner1"]' -p subscriber2
+# cleos push action monetime subscribe '["subscriber1", "dappowner1"]' -p subscriber1
+# cleos push action monetime subscribe '["subscriber2", "dappowner1"]' -p subscriber2
 
-cleos push action monetime subscribe '["subscriber1", "dappowner2"]' -p subscriber1
-cleos push action monetime subscribe '["subscriber2", "dappowner2"]' -p subscriber2
+# cleos push action monetime subscribe '["subscriber1", "dappowner2"]' -p subscriber1
+# cleos push action monetime subscribe '["subscriber2", "dappowner2"]' -p subscriber2
 
-cleos push action monetime renew '["dappowner1"]' -p dappowner1
-
-
-
-cleos push action monetime regdapp '["mondapp", "SDK Test Dapp", "token", "500.00 MON"]' -p monetime
-cleos push action monetime subscribe '["subscriber1", "mondapp"]' -p subscriber1
-cleos push action mondapp rundapp '["subscriber1"]' -p mondapp
-cleos push action monetime renew '["mondapp"]' -p mondapp
+# cleos push action monetime renew '["dappowner1"]' -p dappowner1
 
 
 
-
-
-
+# cleos push action monetime regdapp '["mondapp", "SDK Test Dapp", "token", "500.00 MON"]' -p monetime
+# cleos push action monetime subscribe '["subscriber1", "mondapp"]' -p subscriber1
+# cleos push action mondapp rundapp '["subscriber1"]' -p mondapp
+# cleos push action monetime renew '["mondapp"]' -p mondapp
