@@ -43,6 +43,10 @@ class monetime : public contract
                     const account_name dapp_account );
 
     // @abi action 
+    void unsubscribe (const account_name subscriber, 
+                        const account_name dapp_account );
+
+    // @abi action 
     void renew ( const account_name dapp_account);
 
     // @abi action 
@@ -101,7 +105,7 @@ class monetime : public contract
         asset           lifetime_pay;
         uint32_t        last_paid;
         uint32_t        expiration;
-
+        
         uint64_t primary_key() const { return sub_id; }
         account_name by_subscriber() const { return subscriber; }
         account_name by_dapp() const { return dapp_account; }
