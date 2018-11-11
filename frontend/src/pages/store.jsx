@@ -22,6 +22,9 @@ class Store extends Component {
   }
 
   async handleSubscribe(event) {
+
+    this.props.handlePageChange(this.props.storeId + "-2")
+
     event.preventDefault();
 
     let account = accounts[0]['name']
