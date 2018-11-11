@@ -17,7 +17,10 @@ class Menu extends Component {
 
     let wowLi = ""
     let gymLi = ""
-    let marketLi = <li id="Menu-browse" onClick={this.handlePageChange}>Browse Marketplace</li>
+    let marketLi = <li id="Menu-browse" onClick={this.handlePageChange}> Browse Marketplace</li>
+    if (this.props.selected == 'market')
+      marketLi = <li id="Menu-browse" className="selected" onClick={this.handlePageChange}>Browse Marketplace</li>
+
     if (this.props.subs && this.props.subs['wow']) {
       if (this.props.selected == 'wow')
         wowLi = <li className="selected">World of Warcraft</li>
@@ -32,8 +35,6 @@ class Menu extends Component {
         gymLi = <li>24-Hour Fitness</li>
     }
 
-    if (this.props.selected == 'market')
-      marketLi = <li id="Menu-browse" className="selected" onClick={this.handlePageChange}>Browse Marketplace</li>
 
     return (
       <div id="Menu">

@@ -43,6 +43,19 @@
 	height: 1.75rem;
 	cursor: pointer;
 }
+
+li#Menu-browse {
+	background-repeat: no-repeat;
+	background-size: 18px 18px;
+	background-position: 20px 3px;
+	padding-left: 43px;
+	background-image: url('/assets/ui/market.svg');
+}
+
+#Menu-browse.selected, #Menu-browse:hover {
+	background-image: url('/assets/ui/market-selected.svg');
+}
+
 #Menu li:hover, #Menu li.selected {
 	background-color: #4C9689;
 	color: white;
