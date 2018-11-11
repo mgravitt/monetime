@@ -49,6 +49,13 @@
 	cursor: pointer;
 }
 
+.Store .button img {
+	width: 18px;
+	height: 18px;
+	vertical-align: -2px;
+	margin-right: 3px;
+}
+
 .Store .offer {
 	margin-top: 7px;
 	text-align: center;
@@ -69,3 +76,4 @@
 .Store-metadata {
 	font-weight: bold;
 }
+

@@ -110,6 +110,7 @@ class Store extends Component {
     let storeClass = "Store-" + this.props.storeId + (this.props.subscribed ? "-2" : "")
 
     let buttonName = this.props.subscribed ? "Unsubscribe" : "Subscribe"
+    let buttonIcon = this.props.subscribed ? <img src="/assets/ui/pause.svg" /> : <img src="/assets/ui/play.svg" />
 
     let subAction = this.props.subscribed ? this.handleUnsubscribe : this.handleSubscribe
 
@@ -122,7 +123,7 @@ class Store extends Component {
         <div className={storeClass}>
             <div className="buttons">
               <div className="button" onClick={subAction}>
-                {buttonName}
+                {buttonIcon} {buttonName}
               </div>
               {sellButton}
             </div>
