@@ -37,8 +37,8 @@ cleos push action token transfer '["subscriber3", "monetime", "500.00 MON", "dep
 cleos push action token transfer '["subscriber4", "monetime", "500.00 MON", "deposit"]'  -p subscriber4
 cleos push action token transfer '["subscriber5", "monetime", "500.00 MON", "deposit"]'  -p subscriber5
 
-cleos push action monetime regdapp '["dappowner1", "24 Hour Fitness", "token", "12.00 MON"]' -p monetime
-cleos push action monetime regdapp '["dappowner2", "Great New EOS Game", "token", "3.50 MON"]' -p monetime
+cleos push action monetime regdapp '["24h", "24 Hour Fitness", "token", "12.00 MON"]' -p monetime
+cleos push action monetime regdapp '["wow", "World of Warcraft", "token", "3.50 MON"]' -p monetime
 cleos push action monetime regdapp '["dappowner3", "Dateos - Find your soul mate", "token", "24.00 MON"]' -p monetime
 cleos push action monetime regdapp '["dappowner4", "EOS Apron - Prepared Meals", "token", "3.50 MON"]' -p monetime
 cleos push action monetime regdapp '["dappowner5", "Worldwide Media Subs", "token", "0.02 MON"]' -p monetime

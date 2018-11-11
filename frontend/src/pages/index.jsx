@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 
+import { Api, JsonRpc, RpcError, JsSignatureProvider } from 'eosjs'; // https://github.com/EOSIO/eosjs
+import { TextDecoder, TextEncoder } from 'text-encoding';
+
+
 import Menu from './menu';
 import Market from './market';
 import Store from './store';
 import '../styles/Index.css';
+
+const endpoint = "http://localhost:8888";
 
 class Index extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      page: ''
+      page: '',
+      subs: [],
     }
+
     this.handlePageChange = this.handlePageChange.bind(this)
+    this.handleBlockchainTable = this.handleBlockchainTable.bind(this)
   }
 
   handlePageChange(page) {
@@ -22,17 +31,40 @@ class Index extends Component {
     })
   }
 
+  handleBlockchainTable() {
+    const rpc = new JsonRpc(endpoint);
+    rpc.get_table_rows({
+      "json": true,
+      "code": "monetime",   // contract who owns the table
+      "scope": "monetime",  // scope of the table
+      "table": "subs",    // name of the table as specified by the contract abi
+      "limit": 100,
+    }).then(result => {
+
+      console.log(result.rows)
+
+      let subs = {}
+
+      for (let i in result.rows) {
+        subs[result.rows[i]['dapp']] = true
+      }
+
+      console.log(subs)
+
+      this.setState({ subs: subs })
+    });
+  }
+
   render() {
 
     let pageDOM = <Market handlePageChange={this.handlePageChange} />
     if (this.state.page == 'wow') {
-      pageDOM = <Store storeId="wow" handlePageChange={this.handlePageChange} />
+      let subscribed = this.state.subs[this.state.page]
+      pageDOM = <Store storeId="wow" handlePageChange={this.handlePageChange} handleBlockchainTable={this.handleBlockchainTable} subscribed={subscribed}  />
     } else if (this.state.page == '24h') {
-      pageDOM = <Store storeId="24h" handlePageChange={this.handlePageChange} />
-    } else if (this.state.page == 'wow-2') {
-      pageDOM = <Store storeId="wow-2" handlePageChange={this.handlePageChange} />
-    } else if (this.state.page == '24h-2') {
-      pageDOM = <Store storeId="24h-2" handlePageChange={this.handlePageChange} />
+      let subscribed = this.state.subs[this.state.page]
+      console.log("subscribed: " + subscribed)
+      pageDOM = <Store storeId="24h" handlePageChange={this.handlePageChange} handleBlockchainTable={this.handleBlockchainTable} subscribed={subscribed} />
     }
 
 

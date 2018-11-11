@@ -23,8 +23,6 @@ class Store extends Component {
 
   async handleSubscribe(event) {
 
-    this.props.handlePageChange(this.props.storeId + "-2")
-
     event.preventDefault();
 
     let account = accounts[0]['name']
@@ -34,7 +32,8 @@ class Store extends Component {
     const signatureProvider = new JsSignatureProvider([privateKey]);
     const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
     try {
-      console.log(privateKey);
+
+      console.log("storeID: " + this.props.storeId);
       const result = await api.transact({
         actions: [{
           account: "monetime",
@@ -45,16 +44,16 @@ class Store extends Component {
           }],
           data: {
             subscriber: account,
-            dapp_account: "dappowner1"
+            dapp_account: this.props.storeId
           }
         }]
       }, {
         blocksBehind: 3,
         expireSeconds: 30,
-      });
+      })
 
-      console.log(result);
-      this.getTable();
+      console.log(result)
+      this.props.handleBlockchainTable()
     } catch (e) {
       console.log('Caught exception: ' + e);
       if (e instanceof RpcError) {
@@ -65,17 +64,20 @@ class Store extends Component {
 
   render() {
 
-    let storeClass = "Store-" + this.props.storeId
+
+    let storeClass = "Store-" + this.props.storeId + (this.props.subscribed ? "-2" : "")
+
+    let buttonName = this.props.subscribed ? "Pause Subscription" : "Start Subscription"
 
     return (
       <div className="Store">
         <div className={storeClass}>
             <div className="buttons">
               <div className="button" onClick={this.handleSubscribe}>
-                Start Membership
+                {buttonName}
               </div>
               <div className="button">
-                Sell Membership
+                Sell Subscription
               </div>
               <div className="offer">
                 Best Offer: 18.4 EOS ($100)
