@@ -9,12 +9,27 @@ class Store extends Component {
 
     return (
       <div className="Store">
-      	<img src="/assets/store-icons/24h.png" />
-        <div className="Store-title">
-        24-Hour Fitness
+        <div className="Store-left">
+        	<img src="/assets/store-icons/24h.png" />
           <Button>
-            Subscribe
+            Start Membership
           </Button>
+          <Button>
+            Sell Membership
+          </Button>
+          Best Offer: 18.4 EOS ($100)
+        </div>
+        <div className="Store-right">
+            <div className="Store-title">
+              24-Hour Fitness
+            </div>
+            <div className="Membership-details">
+Membership: Basic<br/>
+Status: Active<br/>
+Price: 1 EOS/mo. ($5.43/mo.)<br/>
+Member Since: Sep 1998<br/>
+Active Time: 10.17 years<br/>
+            </div>
         </div>
       </div>
     );
